@@ -1,0 +1,162 @@
+ /*
+Color scheme:
+-- Borders #D5D5D5
+-- Background can be #9099A2, #96858F or #D5D5D5
+-- whitesmoke is allowed as well
+*/
+
+
+body {
+    font-family: "Work Sans"
+}
+
+ 
+.row-fluid {
+    height: 100%; 
+    display:table-cell; 
+    vertical-align: middle;
+}
+ 
+ 
+
+.centering {
+  float:none;
+  margin:0 auto;
+}
+
+
+#icon-bar {
+    padding-top: 0.75%;
+    background-color: whitesmoke;
+    border-bottom: 2px solid #D5D5D5;
+    padding-bottom: 0.5%;
+}
+
+#main-bar {
+    background-color: #9099A2;
+    padding-bottom: 2%;
+    color: whitesmoke;
+}
+
+#main-header {
+    text-align: right;
+}
+
+#headshot {
+    max-width: 50%;
+    max-height: 50%;
+    padding-top: 5%;
+    margin: auto;
+}
+
+#my-work-header {
+    border-top: 10px solid #D5D5D5;
+
+}
+
+.my-work {
+    background-color: whitesmoke;
+}
+
+#tms {
+    max-width: 300px;
+}
+
+#cd {
+    max-width: 300px;
+    padding-top: 1%;
+}
+
+#virtru {
+    max-width: 300px;
+}
+
+#my-work-icons {
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+
+@media only screen and (max-width: 992px) {
+    #cd {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    #virtru {
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
+    #tms {
+        margin-bottom:25px;
+    }
+}
+
+
+#matt-recc {
+    padding-bottom: 5%;
+    background-color: white;
+
+}
+
+#sean-recc {
+    padding-bottom: 2%;
+}
+
+#matt {
+    max-height:100px;
+    margin-top: 4%;
+    margin-bottom: -5%;
+}
+
+#sean {
+    max-height:100px;
+    margin-top: 4%;
+    vertical-align: center;
+    margin-bottom: -2%;
+
+}
+
+#matt-text {
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+#sean-text {
+    margin-right: 20%;
+    margin-left: 20%;
+    padding-bottom: 3%;
+}
+
+#Work {
+    background-color: whitesmoke;
+    padding-top: 2%;
+    padding-bottom: 3%
+}
+
+#images-cd {
+    padding-top: 1%;
+}
+
+.headlines a {
+    color: #333;
+}
+
+#images-tms {
+    padding-top: 1%;
+}
+
+#headlines-cd {
+    padding-bottom: 2%;
+    border-bottom: 2px solid #d5d5d5
+}
+
+.caption {
+    color: #333;
+    text-align: center;
+    padding-top: 2%;
+
+}
+
+#images-virtru {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
