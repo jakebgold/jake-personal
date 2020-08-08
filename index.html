@@ -1,189 +1,78 @@
-<html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&display=swap"
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<link rel="icon" href="icons/logo1.jpg">
-<title>Jake Gold</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
+<head>
+    <title>Jake B. Gold</title>
+    <link rel="icon" href="http://jake-gold.com/icons/logo1.jpg">
 
-<style>
-    body {
-        background-color: whitesmoke;
-        font-family: 'Work Sans', sans-serif;
-    }
-
-    button a {
-        color: white !important;
-    }
-
-    a {
-        color: #3b80fe;
-    }
-
-    .date {
-        margin-bottom: 3px;
-        font-size: 12px;
-        color: #999;
-    }
-
-    .link {
-        font-size: 18px;
-        color: #3b80fe;
-        line-height: 19px;
-        font-weight: 300;
-    }
-
-    /* Computers & tablets below */
-    @media only screen and (min-width: 768px) {
-        #sidebar {
-            float: left;
-            width: 40%;
-            min-width: 350px;
-            height: 100%;
-            position: absolute;
-            padding: 15% 5% 5%;
-        }
-
-        html,
+    <style>
         body {
-            margin: 0;
-            height: 100%;
-            overflow: hidden
+            font-family: 'Roboto', sans-serif;
         }
 
-        #content {
-            float: right;
-            width: 60%;
-            height: 100%;
-            padding: 5% 3%;
-            overflow: auto;
-        }
-    }
-
-    /* Phones below */
-    @media only screen and (max-width: 768px) {
-        body {
-            padding: 5% 5% 5% 5%;
+        div {
+            padding: 5% 5% 2% 5%;
+            color: #213444
         }
 
-    }
-</style>
+        p,
+        li {
+            font-size: 18px;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        a {
+            color: #F0A07C;
+            text-decoration: underline;
+            font-weight: 800;
+        }
+
+        a:hover {
+            color: #F0A07C;
+        }
+
+        li {
+            color: white;
+        }
+    </style>
+</head>
 
 <body>
-    <script>
-        today = new Date();
-        var graduation = new Date(2019, 11, 16);
-        var one_day = 1000 * 60 * 60 * 24;
-        var diff = graduation.getTime() - today.getTime();
-        diff = Math.ceil(diff / one_day);
-        var stringthing = diff;
-        window.onload = function () {
-            document.getElementById('intro-string').innerHTML = stringthing;
-        }
-    </script>
-    <div id="sidebar">
-        <!-- <img src="images/Headshots/Me.jpg" style = "max-width: 25%"> -->
-        <h1 style="font-size: 60px; font-weight: 400;">Hi, I'm Jake.</h1>
-        <div style="font-size: 16px;">
-            <p>I'm studying economics <a href="https://www.twitter.com/uva">@UVA</a>. <span style="font-weight: 600;">I
-                    graduate in <span id="intro-string" style="background-color: #FFFF00"></span> days.</span></p>
-
-
-
-            <p>I’m currently legislative assistant to Delegate-elect <a
-                    href="https://www.twitter.com/sallylhudson">@SallyLHudson</a>, who represents Charlottesville in the
-                Virginia House of Delegates. Before that, I successfully ran the Charlottesville Democratic Party's
-                coordinated
-                campaign for City Council and worked for Anne Lewis Strategies, a national political digital firm.
-                running for Charlottesville City Council. I also ran communications for Delegate-elect Hudson in the
-                primary campaign and communications and field operations for <a
-                    href="https://www.twitter.com/MPayneCville">@MPayneCville</a> in his successful bid for
-                Charlottesville City Council.
-            </p>
-            <p>Before that, I was news editor <a href="https://www.twitter.com/cavalierdaily">@CavalierDaily</a> and
-                research assistant <a href="https://www.twitter.com/JusticeTechLab">@JusticeTechLab</a>. I was also a
-                research and production intern <a href="https://www.twitter.com/cspanwj">@CSPANwj</a>, assistant news
-                editor <a href="https://www.twitter.com/miamistudent">@MiamiStudent</a>, and digital marketing intern <a
-                    href="https://www.twitter.com/VirtruPrivacy">@VirtruPrivacy.</a></p>
-            <a href="mailto:jake@fivegolds.com"><button class="btn btn-info">Say hello!</button></a>
-            <a href="http://www.twitter.com/jake_gold"><button class="btn btn-primary">Find me on Twitter</button></a>
-        </div>
+    <div style="background-color: white; height: 40%;">
+        <h1 style="color: #213444; font-weight: 800;">Hi! I'm Jake.</h1>
+        <p>I've lived in Charlottesville, Va. since graduating from the University of Virginia. I'm currently Chief of
+            Staff to Virginia Delegate Sally Hudson. Before starting with Delegate Hudson, I was as a campaign staffer
+            in several local and state races,
+            and I worked at Anne Lewis Strategies as a technical freelancer for several national campaigns and
+            nonprofits. At UVA, I was news editor at The Cavalier Daily and a research assistant at the Justice Tech
+            Lab.</p>
+        <hr>
+        </hr>
+        <p>
+            <font style="color: #F0A07C; font-weight: 800;">You can get in touch at
+                <a href="mailto:jake@jakebgold.com"
+                    style="color: #F0A07C; text-decoration: underline; ">jake@jakebgold.com</a>.</font>
+        </p>
     </div>
-
-    <div id="content">
-        <h3 style="font-weight: 700">Sally for Virginia</h3>
-        <p class="date">PRODUCED VIDEO</p>
-        <p class="link"><a href="files/BenCullop.mp4">Ben Cullop endorsement video</a></p>
-        <p class="date">BUILT WEBSITE</p>
-        <p class="link"><a href="files/SallyWebsite1.png">Campaign home and issues page</a></p>
-
-        <h3 style="font-weight: 700">Michael Payne for Cville</h3>
-        <p class="date">PRODUCED VIDEO</p>
-        <p class="link"><a href="files/DonGathers.mp4">Don Gathers endorsement video</a></p>
-        <p class="date">BUILT WEBSITE</p>
-        <p class="link"><a href="files/MPWebsite.png">Campaign home and issues page</a></p>
-        <p class="date">PRODUCED VIDEO</p>
-        <p class="link"><a href="files/MPTV.mp4">General election television advertisement</a></p>
+    <div style="background-color: #213444; height: auto; min-height: 60%;">
+        <h1 style="color: white; font-weight: 800;">You can find my...</h1>
+        <p style="color: white;">
+            <ul>
+                <li>...thoughts on <a href="">Twitter</a>.
+                </li>
+                <li>...new writings on <a href="">Substack</a>.
+                </li>
+            </ul>
+        </p>
 
 
-        <h3 style="font-weight: 700">The Cavalier Daily</h3>
-        <p class="date">MAY 11, 2018</p>
-        <p class="link"><a href="files/clips/CD/Unaffiliated.pdf">New ‘unaffiliated persons’ policies could suppress
-                speech at U.Va., experts say</a></p>
-        <p class="date"> APRIL 23, 2018</p>
-        <p class="link"><a href="files/clips/CD/ParkSurvey.pdf">How outsiders hijacked Charlottesville's park renaming
-                poll</a></p>
-        <p class="date"> OCTOBER 3, 2018</p>
-        <p class="link"><a href="files/clips/CD/DougBlackmon.pdf">Douglas Blackmon leaving Miller Center, citing
-                directional differences</a></p>
-        <p class="date"> AUGUST 7, 2018</p>
-        <p class="link"><a href="files/clips/CD/MarcShort.pdf">Miller Center to pay Marc Short $48,000 for one-year
-                tenure</a></p>
-        <p class="date"> JULY 2, 2018</p>
-        <p class="link"><a href="files/clips/CD/Legacy.pdf">Legacy applicants admitted to U.Va. at nearly two times the
-                rate of non-legacies in 2018</a></p>
-        <p class="date"> APRIL 26, 2018</p>
-        <p class="link"><a href="files/clips/CD/LawStudents.pdf">Law students and professor seeking no-trespassing
-                order, criminal charge for Kessler and other white nationalists</a></p>
 
-        <h3 style="font-weight: 700">The Miami Student</h3>
-        <p class="date"> NOVEMBER 30, 2017</p>
-        <p class="link"><a href="files/clips/TMS/Students4Life.pdf">Students for Life at Miami Hamilton suing for
-                alleged First Amendment violations</a></p>
-        <p class="date"> OCTOBER 29, 2017</p>
-        <p class="link"><a href="files/clips/TMS/Collusion.pdf">Amid rumors of collusion, candidates received common
-                aid</a></p>
-        <p class="date"> OCTOBER 19, 2017</p>
-        <p class="link"><a href="http://miamistudent.net/oxford-city-council-debate/">Oxford's first-ever City Council
-                debate</a></p>
-        <p class="date"> APRIL 11, 2017</p>
-        <p class="link"><a href="files/clips/TMS/DrinkingHistory.pdf">Drinking in Oxford: a history</a></p>
-        <p class="date"> NOVEMBER 28, 2017</p>
-        <p class="link"><a href="files/clips/TMS/HouseTax.pdf">U.S. House tax bill jeopardizes graduate students'
-                financial futures</a></p>
-        <p class="date"> DECEMBER 5, 2017</p>
-        <p class="link"><a href="files/clips/TMS/Blackboard.pdf">Miami I.T. call center outsourced to D.C. educational
-                technology corporation</a></p>
 
-        <h3 style="font-weight: 700">Virtru</h3>
-        <p class="date"> WHITEPAPER</p>
-        <p class="link"><a href="files/HIPAA.pdf">HIPAA compliance with Virtru</a></p>
-        <p class="date"> LANDING PAGE</p>
-        <p class="link"><a href="http://virtru.com/landing-page-gmail">Virtru for Gmail</a></p>
-        <p class="date"> BLOG POST</p>
-        <p class="link"><a href="https://www.virtru.com/blog/microsoft-email-encryption/">Microsoft email encryption –
-                options for advanced data protection and privacy</a></p>
     </div>
-
-
-
-
-
-
-
 </body>
-
-</html>
