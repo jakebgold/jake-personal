@@ -1,127 +1,141 @@
-<script>
-    var cuisines = [
-        'Portuguese',
-        'Mexican',
-        'Soul Food',
-        'Steakhouse',
-        'Southwestern',
-        'Afghan',
-        'Creole',
-        'New French',
-        'Italian',
-        'French',
-        'Latin American',
-        'New American',
-        'Creole/Cajun',
-        'Chicken',
-        'Indian',
-        'Vegan',
-        'Pakistani',
-        'Irish',
-        'Californian',
-        'Indonesian',
-        'Jewish/Kosher',
-        'Polynesian',
-        'Middle Eastern',
-        'Hawaiian',
-        'Eastern European',
-        'Moroccan',
-        'Filipino',
-        'Sandwiches',
-        'Hamburgers',
-        'Brazilian',
-        'Spanish',
-        'Tex-Mex',
-        'Korean',
-        'Turkish',
-        'Caribbean',
-        'American',
-        'Scandinavian',
-        'Peruvian',
-        'Thai',
-        'African',
-        'Southeast Asian',
-        'Hotdogs',
-        'Seafood',
-        'Pancakes/Waffles',
-        'Cajun',
-        'Japanese',
-        'Mediterranean',
-        'Vegetarian',
-        'Chinese',
-        'Barbecue',
-        'Tapas',
-        'Greek',
-        'Fusion',
-        'Soups',
-        'Russian',
-        'German',
-        'Soups/Salads/Sandwiches',
-        'Polish',
-        'Salads',
-        'Czech',
-        'Lebanese',
-        'Pizza'
-    ].sort((a, b) => 0.5 - Math.random());
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Sophie Dinner</title>
 
-    // var cuisines = ['Chinese', 'Chicken', 'Japanese'];
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
-    var c = 0;
-    var accCuisines = []
-    var favRestaurants = {
-        'Chinese': ['China King'],
-        'Chicken': ['Big Arc Chicken <i color="#d9d9d9">[Sponsored!]</i>', 'Bobwhite Chicken'],
-        'Japanese': ['Rai Rai Ken']
-    }
-    var possibleRestaurants = [];
+    <style>
+        body {
+            margin: 10%;
+            font-family: 'Roboto', sans-serif;
+        }
 
-    var cuisineY = function () {
-        accCuisines.push(cuisines[c])
-        c += 1;
-        document.getElementById("cuisine").innerHTML = cuisines[c];
-        if (accCuisines.length > 2) {
+        #accCuisines {
+            margin: 5%;
+        }
+    </style>
 
-            accCuisines.forEach(elem => {
-                if (elem in favRestaurants) {
-                    favRestaurants[elem].forEach(restaurant => possibleRestaurants.push(restaurant));
-                };
-            })
+    <script>
+        var cuisines = [
+            'Mexican',
+            'Soul Food',
+            'Steakhouse',
+            'Southwestern',
+            'Afghan',
+            'Creole',
+            'Italian',
+            'French',
+            'Latin American',
+            'Chicken',
+            'Indian',
+            'Jewish/Kosher',
+            'Middle Eastern',
+            'Hawaiian',
+            'Eastern European',
+            'Moroccan',
+            'Sandwiches',
+            'Hamburgers',
+            'Spanish',
+            'Korean',
+            'Turkish',
+            'Caribbean',
+            'American',
+            'Scandinavian',
+            'Peruvian',
+            'Thai',
+            'African',
+            'Southeast Asian',
+            'Hotdogs',
+            'Seafood',
+            'Pancakes/Waffles',
+            'Cajun',
+            'Japanese',
+            'Mediterranean',
+            'Vegetarian',
+            'Chinese',
+            'Barbecue',
+            'Tapas',
+            'Greek',
+            'Soups',
+            'Salads',
+            'Lebanese',
+            'Pizza',
+            'Dumplings'
+        ].sort((a, b) => 0.5 - Math.random());
 
-            document.getElementById("accCuisines").innerHTML += 'Sophie is in the mood for ... <br><br><ul><li>' +
-                accCuisines.join("</li><li>") +
-                '</li></ul><br>';
+        // var cuisines = ['Chinese', 'Chicken', 'Japanese'];
 
-            if (possibleRestaurants.length > 0) {
-                document.getElementById("accCuisines").innerHTML += "Some ideas might be ... <br><br><ul><li>" +
-                    possibleRestaurants.join("</li><li>") +
-                    '</li></ul><br><br>';
-            } else {
+        var c = 0;
+        var accCuisines = []
+        var favRestaurants = {
+            'Chinese': ['China King'],
+            'Chicken': ['Big Arc Chicken', 'Bobwhite Counter', 'Mad for Chicken'],
+            'Japanese': ['Rai Rai Ken'],
+            'Sandwiches': ['Court Street Grocers', 'Panineria', 'Faicco\'s', 'Sal, Kris, & Charlie\'s Deli',
+                'Fiore\'s'
+            ],
+            'Mexican': ['Borrachito'],
+            'Soul Food': ['Bobwhite Counter'],
+            'Italian': ['San Marzano'],
+            'Indian': ['Taco Mahal'],
+            'Polynesian': ['Poke Bowl'],
+            'Middle Eastern': ['Rainbow Falafel', 'King of Falafel'],
+            'Hawaiian': ['Poke Bowl'],
+            'Eastern European': ['Veselka'],
+            'Hamburgers': ['Paul\'s Da Burger Joint', '7th Street Burger'],
+            'Korean': ['Boka', 'Mad for Chicken'],
+            'Thai': ['Soothr'],
+            'Seafood': ['Bait & Hook'],
+            'Pancakes/Waffles': ["IHOP"],
+            'Mediterranean': ['Cava', 'Mezeh'],
+            'Greek': ['Duzan (Astoria)'],
+            'Salads': ['Cava', 'Dig Inn'],
+            'Dumplings': ['Kent\'s']
+
+        }
+        var possibleRestaurants = [];
+
+        var cuisineY = function () {
+            accCuisines.push(cuisines[c])
+            c += 1;
+            document.getElementById("cuisine").innerHTML = cuisines[c];
+            if (accCuisines.length > 2) {
+
+                accCuisines.forEach(elem => {
+                    if (elem in favRestaurants) {
+                        favRestaurants[elem].forEach(restaurant => possibleRestaurants.push(restaurant));
+                    };
+                })
+
                 document.getElementById("accCuisines").innerHTML +=
-                    "Afraid you don't have any favorite restaurants in these cuisines. Go try something new!";
-            }
+                    'Sophie is in the mood for ... <br><br><ul><li>' +
+                    accCuisines.join("</li><li>") +
+                    '</li></ul><br>';
 
-            document.getElementById("choices").style.display = 'none';
+                if (possibleRestaurants.length > 0) {
+                    document.getElementById("accCuisines").innerHTML += "Some ideas might be ... <br><br><ul><li>" +
+                        possibleRestaurants.join("</li><li>") +
+                        '</li></ul><br><br>';
+                } else {
+                    document.getElementById("accCuisines").innerHTML +=
+                        "Afraid you don't have any favorite restaurants in these cuisines. Go try something new!";
+                }
 
-        };
-    }
-    var cuisineN = function () {
-        c += 1;
-        document.getElementById("cuisine").innerHTML = cuisines[c];
-    }
-</script>
+                document.getElementById("choices").style.display = 'none';
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+            };
+        }
+        var cuisineN = function () {
+            c += 1;
+            document.getElementById("cuisine").innerHTML = cuisines[c];
+        }
+    </script>
 
-<style>
-    body {
-        margin: 10%;
-    }
-
-    #accCuisines {
-        margin: 5%;
-    }
-</style>
+</head>
 
 <body>
     <div id="choices">
