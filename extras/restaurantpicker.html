@@ -8,6 +8,9 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
 
+    <script type='text/javascript' src='/Users/jake/Documents/Javascript/cuisinepicker/config.js'></script>
+
+
     <style>
         body {
             margin: 10%;
@@ -20,84 +23,103 @@
     </style>
 
     <script>
+        var key = config.SECRET_API_KEY;
+
         var cuisines = [
-            'Mexican',
-            'Soul Food',
-            'Steakhouse',
-            'Southwestern',
-            'Afghan',
-            'Creole',
-            'Italian',
-            'French',
-            'Latin American',
-            'Chicken',
-            'Indian',
-            'Jewish/Kosher',
-            'Middle Eastern',
-            'Hawaiian',
-            'Eastern European',
-            'Moroccan',
-            'Sandwiches',
-            'Hamburgers',
-            'Spanish',
-            'Korean',
-            'Turkish',
-            'Caribbean',
             'American',
-            'Scandinavian',
-            'Peruvian',
-            'Thai',
-            'African',
-            'Southeast Asian',
-            'Hotdogs',
-            'Seafood',
-            'Pancakes/Waffles',
-            'Cajun',
-            'Japanese',
-            'Mediterranean',
-            'Vegetarian',
+            'Barbeque',
+            'Chicken',
             'Chinese',
-            'Barbecue',
-            'Tapas',
+            'Dim Sum',
+            'Diner Food',
+            'Dumplings',
+            'Eastern European',
+            'French',
             'Greek',
-            'Soups',
-            'Salads',
-            'Lebanese',
+            'Hamburgers',
+            'Hawaiian',
+            'Indian',
+            'Italian',
+            'Japanese/Ramen',
+            'Korean',
+            'Mediterranean',
+            'Mexican',
+            'Middle Eastern',
             'Pizza',
-            'Dumplings'
+            'Ramen',
+            'Salads',
+            'Sandwiches',
+            'Seafood',
+            'Soul Food',
+            'Soup',
+            'Sushi',
+            'Tacos',
+            'Thai'
         ].sort((a, b) => 0.5 - Math.random());
 
         // var cuisines = ['Chinese', 'Chicken', 'Japanese'];
 
         var c = 0;
         var accCuisines = []
-        var favRestaurants = {
-            'Chinese': ['China King'],
-            'Chicken': ['Big Arc Chicken', 'Bobwhite Counter', 'Mad for Chicken'],
-            'Japanese': ['Rai Rai Ken'],
-            'Sandwiches': ['Court Street Grocers', 'Panineria', 'Faicco\'s', 'Sal, Kris, & Charlie\'s Deli',
-                'Fiore\'s'
-            ],
-            'Mexican': ['Borrachito'],
-            'Soul Food': ['Bobwhite Counter'],
-            'Italian': ['San Marzano'],
-            'Indian': ['Taco Mahal'],
-            'Polynesian': ['Poke Bowl'],
-            'Middle Eastern': ['Rainbow Falafel', 'King of Falafel'],
-            'Hawaiian': ['Poke Bowl'],
-            'Eastern European': ['Veselka'],
-            'Hamburgers': ['Paul\'s Da Burger Joint', '7th Street Burger'],
-            'Korean': ['Boka', 'Mad for Chicken'],
-            'Thai': ['Soothr'],
-            'Seafood': ['Bait & Hook'],
-            'Pancakes/Waffles': ["IHOP"],
-            'Mediterranean': ['Cava', 'Mezeh'],
-            'Greek': ['Duzan (Astoria)'],
-            'Salads': ['Cava', 'Dig Inn'],
-            'Dumplings': ['Kent\'s']
+
+
+        var url = "https://api.airtable.com/v0/apprGsqAaYZdvrNR0/restaurants";
+        var res = '';
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open("GET", url);
+
+        header = "Bearer " + key;
+
+        xhr.setRequestHeader("Authorization", header);
+
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                res = xhr.response['records'];
+            }
+        };
+
+        xhr.send();
+
+        var resDict = {};
+        var finDict = {};
+
+        var getAllRestaurants = function () {
+            for (item in res) {
+                resDict[res[item]['fields']['name']] = res[item]['fields']['cuisines'];
+            };
+
+            for (item in resDict) {
+                for (cuisine in resDict[item]) {
+                    if (resDict[item][cuisine] in finDict) {
+                        finDict[resDict[item][cuisine]].push(item);
+                    } else {
+                        finDict[resDict[item][cuisine]] = [item];
+                    }
+                }
+            }
+            return finDict;
+        };
+
+        var restaurantSuggestions = new Array;
+
+        function getRightRestaurants(cuisines) {
+
+            var allRestaurants = getAllRestaurants();
+            for (i in cuisines) {
+                var cuisine = cuisines[i]
+
+                if (allRestaurants[cuisine] != undefined) {
+                    restaurantSuggestions = restaurantSuggestions.concat(allRestaurants[cuisine]);
+                }
+
+
+            };
+            return restaurantSuggestions;
+
 
         }
-        var possibleRestaurants = [];
 
         var cuisineY = function () {
             accCuisines.push(cuisines[c])
@@ -105,20 +127,16 @@
             document.getElementById("cuisine").innerHTML = cuisines[c];
             if (accCuisines.length > 2) {
 
-                accCuisines.forEach(elem => {
-                    if (elem in favRestaurants) {
-                        favRestaurants[elem].forEach(restaurant => possibleRestaurants.push(restaurant));
-                    };
-                })
+                var posRest = getRightRestaurants(accCuisines);
 
                 document.getElementById("accCuisines").innerHTML +=
                     'Sophie is in the mood for ... <br><br><ul><li>' +
                     accCuisines.join("</li><li>") +
                     '</li></ul><br>';
 
-                if (possibleRestaurants.length > 0) {
+                if (posRest.length > 0) {
                     document.getElementById("accCuisines").innerHTML += "Some ideas might be ... <br><br><ul><li>" +
-                        possibleRestaurants.join("</li><li>") +
+                        posRest.join("</li><li>") +
                         '</li></ul><br><br>';
                 } else {
                     document.getElementById("accCuisines").innerHTML +=
